@@ -1,33 +1,21 @@
 package com.sda.model;
 
-import org.hibernate.annotations.LazyToOne;
-
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-@Table(name="employees")
-public class Employee {
-
+@Table(name="departments")
+public class Department {
     @Id
-    @Column(name = "employee_id")
+    @Column(name = "department_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "name", length = 40)
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "department_id", nullable = false)
-    private Department department;
-    
-
-    public Department getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
+    @OneToMany(mappedBy = "department")
+    private Set<Employee> employees;
 
     public Long getId() {
         return id;
@@ -43,5 +31,13 @@ public class Employee {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
     }
 }
