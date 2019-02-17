@@ -20,10 +20,12 @@
 
 <body>
 <h1>Employees page!</h1>
-<table border = "1" width = "100%">
+<table border = "1" width = "50%">
     <tr>
         <th>Emp ID</th>
         <th>Name</th>
+        <th>Job</th>
+        <th>Hire Date</th>
         <th>Department</th>
         <th>Manager</th>
     </tr>
@@ -32,8 +34,10 @@
         <tr>
             <td> <c:out value = "${row.getId()}"/></td>
             <td> <c:out value = "${row.getName()}"/></td>
+            <td> <c:out value = "${row.getJob()}"/></td>
+            <td> <c:out value = "${row.getDate()}"/></td>
             <td> <c:out value = "${row.getDepartment().getName()}"/></td>
-            <%--<td> <c:out value = "${row.manager}"/></td>--%>
+            <td> <c:out value = "${row.getManager().getName()}"/></td>
         </tr>
     </c:forEach>
 </table>
