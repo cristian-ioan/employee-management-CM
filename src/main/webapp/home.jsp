@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.sda.model.User" %><%--
   Created by IntelliJ IDEA.
   User: NicolaeA
   Date: 16.02.2019
@@ -13,6 +13,8 @@
 <head>
     <title>Employees Management</title>
 </head>
+<jsp:include page="header.jsp"/>
+
 <body>
 <h1>This is the home page!</h1>
 </body>

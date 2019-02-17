@@ -10,4 +10,8 @@ public class UserService {
     public User findById(Long id){
         return userDao.getEntityById(User.class, id);
     }
+
+    public User login(String username, String password){
+        return userDao.findByUsernameAndPassword(username, password);
+    }
 }

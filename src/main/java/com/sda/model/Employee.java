@@ -1,5 +1,7 @@
 package com.sda.model;
 
+import org.hibernate.annotations.LazyToOne;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
