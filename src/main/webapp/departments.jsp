@@ -16,12 +16,13 @@
 <html>
 <head>
     <title>Departments</title>
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
 </head>
 <jsp:include page="header.jsp"/>
 
 <body>
 <h1>Departments page!</h1>
-<table border = "1" width = "15%">
+<table border = "1" width = "20%">
     <tr>
         <th>Department ID</th>
         <th>Name</th>

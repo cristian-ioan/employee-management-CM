@@ -186,9 +186,21 @@ body, html {
     height: 100%;
 }
 .background {
-    background-image: url("../images/background.jpg");
+    background-image: url("../images/login.jpg");
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+/*table*/
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even){background-color: #f2f2f2}
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
