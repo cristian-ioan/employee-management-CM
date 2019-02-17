@@ -18,7 +18,7 @@
 </head>
 <body>
 <h1>Employees page!</h1>
-<span><c:out value="${employeeService.findById(1).getName()}"/></span>
+<span><c:forEach items="${employeeService.findAll()}" var="employee">; </span>
 <%--<c:forEach items="${employeeService.findById(1)}" var="employee">--%>
     <%--<span><c:out value="${employee.getName()}"/></span>--%>
 <%--</c:forEach>--%>
