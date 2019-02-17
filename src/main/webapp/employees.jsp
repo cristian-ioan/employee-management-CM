@@ -18,7 +18,27 @@
 </head>
 <body>
 <h1>Employees page!</h1>
-<span><c: forEach items="${employeeService.findAll()}" var="employee"></span>
+<table border = "1" width = "100%">
+    <tr>
+        <th>Emp ID</th>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Manager</th>
+    </tr>
+
+    <c:forEach var = "row" items = "${employeeService.findAll()}">
+        <tr>
+            <td> <c:out value = "${row.getId()}"/></td>
+            <td> <c:out value = "${row.getName()}"/></td>
+            <td> <c:out value = "${row.getDepartment().getName()}"/></td>
+            <%--<td> <c:out value = "${row.manager}"/></td>--%>
+        </tr>
+    </c:forEach>
+</table>
+<%--<span><c:forEach items="${employeeService.findAll()}" var="employee">--%>
+    <%--<c:out value="${employee.id}"></c:out>--%>
+<%--</c:forEach></span>--%>
+
 <%--<c:forEach items="${employeeService.findById(1)}" var="employee">--%>
     <%--<span><c:out value="${employee.getName()}"/></span>--%>
 <%--</c:forEach>--%>
