@@ -21,7 +21,7 @@
 
 <body>
 <h1>Employees page!</h1>
-<table border = "1" width = "50%">
+<table id="tblEmployee" border = "1" width = "50%" style="cursor: pointer;">
     <tr>
         <th>Emp ID</th>
         <th>Name</th>
@@ -34,7 +34,7 @@
     <c:forEach var = "row" items = "${employeeService.findAll()}">
         <tr>
             <td> <c:out value = "${row.getId()}"/></td>
-            <td> <c:out value = "${row.getName()}"/></td>
+            <td onclick="myFunction(this)"> <c:out value = "${row.getName()}"/></td>
             <td> <c:out value = "${row.getJob()}"/></td>
             <td> <c:out value = "${row.getDate()}"/></td>
             <td> <c:out value = "${row.getDepartment().getName()}"/></td>
@@ -42,15 +42,28 @@
         </tr>
     </c:forEach>
 </table>
+
+<script>
+    function myFunction(x) {
+        var table = document.getElementById('tblEmployee');
+        for(var i = 1; i < table.rows.length; i++) {
+            table.rows[i].onclick = function() {
+                var id_employee = this.cells[0].innerHTML;
+                location.href="details_employee.jsp?value=" + id_employee;
+            };
+        }
+    }
+</script>
+
 <%--<span><c:forEach items="${employeeService.findAll()}" var="employee">--%>
     <%--<c:out value="${employee.id}"></c:out>--%>
 <%--</c:forEach></span>--%>
-
 <%--<c:forEach items="${employeeService.findById(1)}" var="employee">--%>
     <%--<span><c:out value="${employee.getName()}"/></span>--%>
 <%--</c:forEach>--%>
 <%--<c:forEach items="${userService.findById(1)}" var="user">--%>
     <%--<span><c:out value="${employee.getUsername()}"/></span>--%>
 <%--</c:forEach>--%>
+
 </body>
 </html>
