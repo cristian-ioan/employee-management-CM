@@ -16,4 +16,8 @@ public class EmployeeService {
     public List<Employee> findAll(){
         return employeeDao.findAll();
     }
+
+    public void createEmployee(Employee employee) {
+        employeeDao.createEntity(employee);
+    }
 }

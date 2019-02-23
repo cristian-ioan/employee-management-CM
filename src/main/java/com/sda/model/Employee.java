@@ -29,7 +29,7 @@ public class Employee {
     @JoinColumn(name = "department_id", nullable = false)
     private Department department;
 
-    @ManyToOne(cascade={CascadeType.ALL})
+    @ManyToOne(cascade={CascadeType.MERGE})
     @JoinColumn(name="manager_id")
     private Employee manager;
 
