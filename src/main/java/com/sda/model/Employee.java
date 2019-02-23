@@ -25,6 +25,17 @@ public class Employee {
     @Column(name = "hire_date", nullable = false)
     private LocalDate date;
 
+    @ManyToOne
+    @JoinColumn(name = "department_id", nullable = false)
+    private Department department;
+
+    @ManyToOne(cascade={CascadeType.ALL})
+    @JoinColumn(name="manager_id")
+    private Employee manager;
+
+    @OneToMany(mappedBy="manager")
+    private Set<Employee> subordinates = new HashSet<Employee>();
+
     public String getJob() {
         return job;
     }
@@ -40,17 +51,6 @@ public class Employee {
     public void setDate(LocalDate date) {
         this.date = date;
     }
-
-    @ManyToOne
-    @JoinColumn(name = "department_id", nullable = false)
-    private Department department;
-
-    @ManyToOne(cascade={CascadeType.ALL})
-    @JoinColumn(name="manager_id")
-    private Employee manager;
-
-    @OneToMany(mappedBy="manager")
-    private Set<Employee> subordinates = new HashSet<Employee>();
 
     public Employee getManager() {
         return manager;
@@ -91,4 +91,5 @@ public class Employee {
     public void setName(String name) {
         this.name = name;
     }
+
 }

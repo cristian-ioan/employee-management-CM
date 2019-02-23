@@ -21,7 +21,7 @@
 
 <body>
 <h1>Employees page!</h1>
-<table id="tblEmployee" border = "1" width = "50%" style="cursor: pointer;">
+<table id="tblEmployee" border = "1" width = "80%" style="cursor: pointer;">
     <tr>
         <th>Emp ID</th>
         <th>Name</th>
@@ -29,22 +29,28 @@
         <th>Hire Date</th>
         <th>Department</th>
         <th>Manager</th>
+        <th>Edit/Delete</th>
     </tr>
 
     <c:forEach var = "row" items = "${employeeService.findAll()}">
         <tr>
             <td> <c:out value = "${row.getId()}"/></td>
-            <td onclick="myFunction(this)"> <c:out value = "${row.getName()}"/></td>
+            <td onclick="getIdEmployee(this)"> <c:out value = "${row.getName()}"/></td>
             <td> <c:out value = "${row.getJob()}"/></td>
             <td> <c:out value = "${row.getDate()}"/></td>
             <td> <c:out value = "${row.getDepartment().getName()}"/></td>
             <td> <c:out value = "${row.getManager().getName()}"/></td>
+            <td><button onClick="window.location='editEmployee.jsp';">Edit</button>
+                <button onclick="window.location='deleteEmployee.jsp';">Delete</button></td>
         </tr>
     </c:forEach>
 </table>
 
+<br>
+<button id="add_button" onClick="window.location='addEmployee.jsp';">Add Employee</button>
+
 <script>
-    function myFunction(x) {
+    function getIdEmployee(x) {
         var table = document.getElementById('tblEmployee');
         for(var i = 1; i < table.rows.length; i++) {
             table.rows[i].onclick = function() {
