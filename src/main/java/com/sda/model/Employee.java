@@ -1,7 +1,5 @@
 package com.sda.model;
 
-import org.hibernate.annotations.LazyToOne;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -35,6 +33,17 @@ public class Employee {
 
     @OneToMany(mappedBy="manager")
     private Set<Employee> subordinates = new HashSet<Employee>();
+
+    @Column(name = "isDeleted", nullable = false, columnDefinition = "boolean default false")
+    private boolean isDeleted;
+
+    public boolean getIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(boolean deleted) {
+        isDeleted = deleted;
+    }
 
     public String getJob() {
         return job;

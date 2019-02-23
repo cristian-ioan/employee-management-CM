@@ -1,9 +1,3 @@
-<%@ page import="com.sda.model.Employee" %>
-<%@ page import="com.sda.service.EmployeeService" %>
-<%@ page import="java.util.Date" %>
-<%@ page import="java.time.LocalDate" %>
-<%@ page import="com.sda.model.Department" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: ioanc
@@ -11,7 +5,12 @@
   Time: 22:18
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page import="com.sda.model.Employee" %>
+<%@ page import="com.sda.service.EmployeeService" %>
+<%@ page import="java.time.LocalDate" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <title>Details for employee</title>

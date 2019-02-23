@@ -21,7 +21,7 @@
 
 <body>
 <h1>Employees page!</h1>
-<table id="tblEmployee" border = "1" width = "80%" style="cursor: pointer;">
+<table id="tblEmployee" border = "1" width = "75%" style="cursor: pointer;">
     <tr>
         <th>Emp ID</th>
         <th>Name</th>
@@ -29,7 +29,7 @@
         <th>Hire Date</th>
         <th>Department</th>
         <th>Manager</th>
-        <th>Edit/Delete</th>
+        <th colspan="2">Edit/Delete</th>
     </tr>
 
     <c:forEach var = "row" items = "${employeeService.findAll()}">
@@ -40,8 +40,18 @@
             <td> <c:out value = "${row.getDate()}"/></td>
             <td> <c:out value = "${row.getDepartment().getName()}"/></td>
             <td> <c:out value = "${row.getManager().getName()}"/></td>
-            <td><button onClick="window.location='editEmployee.jsp';">Edit</button>
-                <button onclick="window.location='deleteEmployee.jsp';">Delete</button></td>
+            <td>
+                <form action="delete" method="POST">
+                    <input type="text" hidden="true" name="idEmp" value = "${row.getId()}"/>
+                    <button type="submit" class="btn btn-primary btn-block btn-large">Delete</button>
+                </form>
+            </td>
+            <td>
+                <form action="edit" method="POST">
+                    <input type="text" hidden="true" name="idEmp" value = "${row.getId()}"/>
+                    <button type="submit" class="btn btn-primary btn-block btn-large">Edit</button>
+                </form>
+            </td>
         </tr>
     </c:forEach>
 </table>
@@ -59,17 +69,8 @@
             };
         }
     }
-</script>
 
-<%--<span><c:forEach items="${employeeService.findAll()}" var="employee">--%>
-    <%--<c:out value="${employee.id}"></c:out>--%>
-<%--</c:forEach></span>--%>
-<%--<c:forEach items="${employeeService.findById(1)}" var="employee">--%>
-    <%--<span><c:out value="${employee.getName()}"/></span>--%>
-<%--</c:forEach>--%>
-<%--<c:forEach items="${userService.findById(1)}" var="user">--%>
-    <%--<span><c:out value="${employee.getUsername()}"/></span>--%>
-<%--</c:forEach>--%>
+</script>
 
 </body>
 </html>
