@@ -26,4 +26,8 @@ public class EmployeeService {
         employeeDao.updateEntity(employee);
     }
 
+    public void updateEmployee(Employee employee){
+        employeeDao.updateEntity(employee);
+    }
+
 }

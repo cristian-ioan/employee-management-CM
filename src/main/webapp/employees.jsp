@@ -59,6 +59,7 @@
 <br>
 <button id="add_button" onClick="window.location='addEmployee.jsp';">Add Employee</button>
 
+
 <script>
     function getIdEmployee(x) {
         var table = document.getElementById('tblEmployee');
