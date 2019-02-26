@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: NicolaeA
-  Date: 16.02.2019
-  Time: 02:23
+  User: ioanc
+  Date: 23/02/2019
+  Time: 11:20
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -41,15 +41,15 @@
             <td> <c:out value = "${row.getDepartment().getName()}"/></td>
             <td> <c:out value = "${row.getManager().getName()}"/></td>
             <td>
-                <form action="delete" method="POST">
-                    <input type="text" hidden="true" name="idEmp" value = "${row.getId()}"/>
-                    <button type="submit" class="btn btn-primary btn-block btn-large">Delete</button>
+                <form action="editEmployee.jsp">
+                    <input type="text" hidden="true" name="idEmployee" value = "${row.getId()}"/>
+                    <button type="submit" class="btn btn-primary btn-block btn-large">Edit</button>
                 </form>
             </td>
             <td>
-                <form action="edit" method="POST">
+                <form action="delete" method="POST">
                     <input type="text" hidden="true" name="idEmp" value = "${row.getId()}"/>
-                    <button type="submit" class="btn btn-primary btn-block btn-large">Edit</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-large">Delete</button>
                 </form>
             </td>
         </tr>
@@ -61,6 +61,7 @@
 
 
 <script>
+
     function getIdEmployee(x) {
         var table = document.getElementById('tblEmployee');
         for(var i = 1; i < table.rows.length; i++) {

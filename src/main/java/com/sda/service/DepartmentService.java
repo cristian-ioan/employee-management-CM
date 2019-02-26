@@ -16,4 +16,18 @@ public class DepartmentService {
     public List<Department> findAll(){
         return departmentDao.findAll();
     }
+
+    public void createDepartment(Department department) {
+        departmentDao.createEntity(department);
+    }
+
+    public void deleteDepartment(Department department){
+        department.setIsDeleted(true);
+        departmentDao.updateEntity(department);
+    }
+
+    public void updateDepartment(Department department){
+        departmentDao.updateEntity(department);
+    }
+
 }

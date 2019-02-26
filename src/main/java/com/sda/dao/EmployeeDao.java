@@ -22,5 +22,5 @@ public class EmployeeDao extends GenericDao<Employee> {
         session.close();
         return list;
     }
-    
+
 }

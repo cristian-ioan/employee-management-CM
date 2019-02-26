@@ -5,41 +5,95 @@
   Time: 11:20
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="com.sda.model.Employee" %>
+<%@ page import="java.time.LocalDate" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+         pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<jsp:useBean id="employeeService" class="com.sda.service.EmployeeService"></jsp:useBean>
+<jsp:useBean id="departmentService" class="com.sda.service.DepartmentService"></jsp:useBean>
+
 <html>
 <head>
     <title>Edit employee</title>
 </head>
+
 <body>
+<h1>Edit employee:</h1>
 
-<form action="editEmployee" method="POST">
+<%
+    Long int_id_employee = Long.valueOf(request.getParameter("idEmployee"));
+    String name_employee = null;
+    String job_employee = null;
+    LocalDate hire_date_employee = null;
+    String dep_employee = null;
+    String manag_employee = null;
 
-    <div class="editEmployess">
-        <br><input type="text" placeholder="employee name" name="username">
-        <br><input type="text" placeholder="job" name="job"><br><br>
-        <%--<label>hire date: </label>--%>
-        <%--<input type="date" name="hireDate"><br>--%>
+    for (Employee employee : employeeService.findAll()) {
+        if(employee.getId() == int_id_employee){
+            name_employee = employee.getName();
+            job_employee = employee.getJob();
+            hire_date_employee = employee.getDate();
+            dep_employee = employee.getDepartment().getName();
+            manag_employee=employee.getManager().getName();
+        }
+    }
+%>
 
-        <%--<br>--%>
-        <%--select a department:&nbsp;--%>
-        <%--<select name="depid">--%>
-            <%--<c:forEach var="department" items="${departmentService.findAll()}">--%>
-                <%--<option value="${department.getId()}"> ${department.getName()}</option>--%>
-            <%--</c:forEach>--%>
-        <%--</select><br>--%>
 
-        <%--<br>--%>
-        <%--select a manager:&nbsp;--%>
-        <%--<select name="empid">--%>
-            <%--<c:forEach var="employee" items="${employeeService.findAll()}">--%>
-                <%--<option value="${employee.getId()}"> ${employee.getName()}</option>--%>
-            <%--</c:forEach>--%>
-        <%--</select>--%>
+<table id="tblEditEmployee" border = "1" width = "15%" style="cursor: pointer;">
+
+<form action="edit" method="POST">
+
+    <div class="editemployee">
+
+        <input type="text" name="idEmp" value="<%= int_id_employee%>" hidden="hidden">
+
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" name="username" value="<%= name_employee%>"></td>
+        </tr>
+
+        <tr>
+            <td>Job:</td>
+            <td><input type="text" name="job" value="<%= job_employee%>"></td>
+        </tr>
+
+        <tr>
+            <td>Hire date:</td>
+            <td><input type="date" name="hireDate" value="<%= hire_date_employee%>"></td>
+        </tr>
+
+        <tr>
+            <td>Department:</td>
+            <td><input type="text" value="<%= dep_employee%>">
+                <select name="depid">
+                    <c:forEach var="department" items="${departmentService.findAll()}">
+                        <option value="${department.getId()}"> ${department.getName()}</option>
+                    </c:forEach>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Manager:</td>
+            <td><input type="text" value="<%= manag_employee%>">
+                <select name="empid">
+                    <c:forEach var="employee" items="${employeeService.findAll()}">
+                        <option value="${employee.getId()}"> ${employee.getName()}</option>
+                    </c:forEach>
+                </select>
+            </td>
+        </tr>
 
         <br><input type="submit" value="Submit" name="submit"></br>
+
     </div>
 
 </form>
+
+</table>
 
 </body>
 </html>

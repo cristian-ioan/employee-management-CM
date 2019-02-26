@@ -22,18 +22,33 @@
 
 <body>
 <h1>Departments page!</h1>
-<table border = "1" width = "20%">
+<table border = "1" width = "30%">
     <tr>
         <th>Department ID</th>
         <th>Name</th>
+        <th colspan="2">Edit/Delete</th>
     </tr>
 
     <c:forEach var = "row" items = "${departmentService.findAll()}">
         <tr>
             <td> <c:out value = "${row.getId()}"/></td>
             <td> <c:out value = "${row.getName()}"/></td>
+            <td>
+                <form action="editDepartment.jsp">
+                    <input type="text" hidden="true" name="idDepartment" value = "${row.getId()}"/>
+                    <button type="submit" class="btn btn-primary btn-block btn-large">Edit</button>
+                </form>
+            </td>
+            <td>
+                <form action="deleteDepartment" method="POST">
+                    <input type="text" hidden="true" name="idDep" value = "${row.getId()}"/>
+                    <button type="submit" class="btn btn-primary btn-block btn-large">Delete</button>
+                </form>
+            </td>
         </tr>
     </c:forEach>
 </table>
+
+<button id="add_button" onClick="window.location='addDepartment.jsp';">Add Department</button>
 </body>
 </html>

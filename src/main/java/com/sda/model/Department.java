@@ -17,6 +17,17 @@ public class Department {
     @OneToMany(mappedBy = "department")
     private Set<Employee> employees;
 
+    @Column(name = "isDeleted", nullable = false, columnDefinition = "boolean default false")
+    private boolean isDeleted;
+
+    public boolean isDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(boolean deleted) {
+        isDeleted = deleted;
+    }
+
     public Long getId() {
         return id;
     }

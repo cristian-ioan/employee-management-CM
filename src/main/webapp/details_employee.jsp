@@ -26,6 +26,7 @@
     LocalDate hire_date_employee = null;
     String department_employee = null;
     EmployeeService employeeService = new EmployeeService();
+
     for (Employee employee : employeeService.findAll()) {
         if(employee.getId() == int_id_employee){
             name_employee = employee.getName();

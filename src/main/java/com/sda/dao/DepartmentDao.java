@@ -14,7 +14,7 @@ public class DepartmentDao extends GenericDao<Department> {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
 
-        Query query = session.createQuery("FROM com.sda.model.Department ");
+        Query query = session.createQuery("FROM com.sda.model.Department WHERE isDeleted != true");
 
         List<Department> list = query.getResultList();
 

@@ -218,3 +218,13 @@ button#add_button  {
     margin: 20px auto 0;
     width: 298px;
 }
+
+.adddepartments {
+    background: #eceeee;
+    border: 1px solid #42464b;
+    border-radius: 6px;
+    height: 207px;
+    margin: 20px auto 0;
+    width: 298px;
+}
+
