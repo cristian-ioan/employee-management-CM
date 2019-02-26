@@ -15,6 +15,7 @@
 <jsp:include page="header.jsp"/>
 
 <body>
+<h2 align="center">Add Department:</h2>
 
 <form action="departments" method="POST">
 

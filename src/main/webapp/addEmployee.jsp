@@ -18,6 +18,7 @@
 <jsp:include page="header.jsp"/>
 
 <body>
+<h2 align="center">Add employee:</h2>
 
 <form action="employees" method="POST">
 

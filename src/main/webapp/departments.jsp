@@ -21,8 +21,8 @@
 <jsp:include page="header.jsp"/>
 
 <body>
-<h1>Departments page!</h1>
-<table border = "1" width = "30%">
+<h1 align="center">Departments page!</h1>
+<table align="center" border = "1" width = "30%">
     <tr>
         <th>Department ID</th>
         <th>Name</th>
@@ -49,6 +49,6 @@
     </c:forEach>
 </table>
 
-<button id="add_button" onClick="window.location='addDepartment.jsp';">Add Department</button>
+<button id="add_button" onClick="window.location='addDepartment.jsp';" style="margin-left: 46%">Add Department</button>
 </body>
 </html>

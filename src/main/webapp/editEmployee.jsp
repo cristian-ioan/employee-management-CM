@@ -20,7 +20,7 @@
 </head>
 
 <body>
-<h1>Edit employee:</h1>
+<h1 align="center">Edit employee:</h1>
 
 <%
     Long int_id_employee = Long.valueOf(request.getParameter("idEmployee"));
@@ -42,7 +42,7 @@
 %>
 
 
-<table id="tblEditEmployee" border = "1" width = "15%" style="cursor: pointer;">
+<table align="center" id="tblEditEmployee" border = "1" width = "15%" style="cursor: pointer;">
 
 <form action="edit" method="POST">
 
@@ -67,7 +67,7 @@
 
         <tr>
             <td>Department:</td>
-            <td><input type="text" value="<%= dep_employee%>">
+            <td><%= dep_employee%>
                 <select name="depid">
                     <c:forEach var="department" items="${departmentService.findAll()}">
                         <option value="${department.getId()}"> ${department.getName()}</option>
@@ -78,7 +78,7 @@
 
         <tr>
             <td>Manager:</td>
-            <td><input type="text" value="<%= manag_employee%>">
+            <td><%= manag_employee%>
                 <select name="empid">
                     <c:forEach var="employee" items="${employeeService.findAll()}">
                         <option value="${employee.getId()}"> ${employee.getName()}</option>
@@ -87,7 +87,7 @@
             </td>
         </tr>
 
-        <br><input type="submit" value="Submit" name="submit"></br>
+        <br><input type="submit" value="Submit" name="submit" style="margin-left: 55%"></br>
 
     </div>
 

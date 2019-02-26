@@ -37,8 +37,8 @@
     }
 %>
 
-<h1>Details of employee:</h1>
-<table id="tblDetailEmployee" border = "1" width = "20%" style="cursor: pointer;">
+<h1 align="center">Details of employee:</h1>
+<table align="center" id="tblDetailEmployee" border = "1" width = "20%" style="cursor: pointer;">
     <tr>
         <td>Emp ID</td>
         <td><%= int_id_employee%></td>
@@ -65,7 +65,7 @@
 
 <br>
 <form>
-    <input type="button" value="Back!" onclick="history.back()">
+    <input type="button" value="Back!" onclick="history.back()" style="margin-left: 50%">
 </form>
 
 </body>

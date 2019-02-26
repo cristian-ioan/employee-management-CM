@@ -20,8 +20,8 @@
 <jsp:include page="header.jsp"/>
 
 <body>
-<h1>Employees page!</h1>
-<table id="tblEmployee" border = "1" width = "75%" style="cursor: pointer;">
+<h1 align="center">Employees page!</h1>
+<table align="center" id="tblEmployee" border = "1" width = "75%" style="cursor: pointer;">
     <tr>
         <th>Emp ID</th>
         <th>Name</th>
@@ -57,8 +57,8 @@
 </table>
 
 <br>
-<button id="add_button" onClick="window.location='addEmployee.jsp';">Add Employee</button>
 
+<button id="add_button" onClick="window.location='addEmployee.jsp';" style="margin-left: 50%">Add Employee</button>
 
 <script>
 

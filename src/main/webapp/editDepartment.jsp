@@ -16,6 +16,7 @@
     <title>Edit Department</title>
 </head>
 <body>
+<h1 align="center">Edit Department:</h1>
 
 <%
     Long int_id_department = Long.valueOf(request.getParameter("idDepartment"));
@@ -28,7 +29,7 @@
     }
 %>
 
-<table id="tblEditDepartment" border = "1" width = "15%" style="cursor: pointer;">
+<table align="center" id="tblEditDepartment" border = "1" width = "15%" style="cursor: pointer;">
 
     <form action="editDepartment" method="POST">
 
@@ -41,7 +42,7 @@
                 <td><input type="text" name="departmentname" value="<%= name_department%>"></td>
             </tr>
 
-            <br><input type="submit" value="Submit" name="submit"></br>
+            <br><input type="submit" value="Submit" name="submit" style="margin-left: 54%"></br>
 
         </div>
 
