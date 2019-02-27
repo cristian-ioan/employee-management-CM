@@ -29,7 +29,7 @@
         <input type="date" name="hireDate"><br>
 
         <br>
-        select a department:;
+        select a department:&nbsp;
         <select name="depid">
             <c:forEach var="department" items="${departmentService.findAll()}">
                 <option value="${department.getId()}"> ${department.getName()}</option>
